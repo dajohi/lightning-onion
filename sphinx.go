@@ -11,6 +11,7 @@ import (
 	"github.com/decred/dcrd/dcrec"
 	"github.com/decred/dcrd/dcrec/secp256k1/v3"
 	"github.com/decred/dcrd/dcrutil/v3"
+	"golang.org/x/crypto/chacha20"
 )
 
 const (
@@ -67,7 +68,7 @@ const (
 	// keyLen is the length of the keys used to generate cipher streams and
 	// encrypt payloads. Since we use SHA256 to generate the keys, the
 	// maximum length currently is 32 bytes.
-	keyLen = 32
+	keyLen = chacha20.KeySize
 
 	// baseVersion represent the current supported version of onion packet.
 	baseVersion = 0
